@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import React, { useEffect, useState } from 'react';
-
+import SplashScreen from 'react-native-splash-screen'
 
 import DateTime from './components/DateTime';
 import WeatherScroll from './components/WeatherScroll'
@@ -20,6 +20,9 @@ const App = () => {
       fetchDataFromApi(latitude, longitude);
     });
 
+  }, []);
+  useEffect(() => {
+    SplashScreen.hide();
   }, []);
   //console.log(position.latitude, position.longitude);
   const fetchDataFromApi = (latitude, longitude) => {
