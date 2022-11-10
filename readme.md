@@ -26,4 +26,14 @@
 5. Lagudu Chandana - Worked on API for Weather app
 
 **Output Images of App:**
-!(/assets/Output_Images/app_icom.png)
+
+### App Icon
+
+![App Icon](assets/Output_Images/app_icon.png)
+
+### Output Images
+
+![Alt text](assets/Output_Images/splash_screen.png)
+![Alt text](assets/Output_Images/Output1.png)
+![Alt text](assets/Output_Images/Output2.png)
+![Alt text](assets/Output_Images/Output3.png)

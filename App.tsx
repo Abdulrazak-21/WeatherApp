@@ -4,12 +4,11 @@ import SplashScreen from 'react-native-splash-screen'
 
 import DateTime from './components/DateTime';
 import WeatherScroll from './components/WeatherScroll'
-import Modalscreen from './components/ModelScreen'
 
 
 import Geolocation from '@react-native-community/geolocation';
 const API_KEY = '49cc8c821cd2aff9af04c9f98c36eb74';
-const img = require('./assets/image.png')
+const img = require('./assets/images/image.png')
 const App = () => {
   const [position, setPosition] = useState<any>({});
   const [data, setData] = useState({});
