@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import moment from 'moment-timezone'
-
+import Modalscreen from './ModelScreen';
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 
-const WeatherItem = ({ title, value, unit }) => {
+const WeatherItem = ({ title, value, unit, uvi, humidity, feels_like, pressure, description }) => {
     return (
-        <View style={styles.weatherItem}>
-            <Text style={styles.weatherItemTitle}>{title}</Text>
-            <Text style={styles.weatherItemTitle}>{value}{unit}</Text>
-        </View>
+        <TouchableOpacity>
+            <View style={styles.weatherItem}>
+                <Text style={styles.weatherItemTitle}>{title}</Text>
+                <Text style={styles.weatherItemTitle}>{value}{unit}</Text>
+            </View>
+            <Modalscreen temp={value} uvi={uvi} humidity={humidity} feels_like={feels_like} pressure={pressure} description={description} />
+        </TouchableOpacity>
     )
 }
 
@@ -46,7 +49,7 @@ const DateTime = ({ current, lat, lon, timezone }) => {
                     <Text style={styles.subheading}>{date}</Text>
                 </View>
                 <View style={styles.weatherItemContainer}>
-                    <WeatherItem title="Temperature" value={current ? current.temp : ""} unit="&#176;C" />
+                    <WeatherItem title="Temperature" value={current ? current.temp : ""} uvi={current ? current.uvi : ""} humidity={current ? current.humidity : ""} feels_like={current ? current.feels_like : ""} pressure={current ? current.pressure : ""} description={current ? current.weather[0].description : ""} unit="&#176;C " />
                     {/* <WeatherItem title="Humidity" value={current ? current.humidity : ""} unit="%" />
                     <WeatherItem title="Pressure" value={current ? current.pressure : ""} unit="hPA" />
                     <WeatherItem title="Sunrise" value={current ? moment.tz(current.sunrise * 1000, timezone).format('HH:mm') : ""} unit="am" />
