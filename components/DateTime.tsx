@@ -6,14 +6,14 @@ const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 
-const WeatherItem = ({ title, value, unit, uvi, humidity, feels_like, pressure, description }) => {
+const WeatherItem = (props) => {
     return (
         <TouchableOpacity>
             <View style={styles.weatherItem}>
-                <Text style={styles.weatherItemTitle}>{title}</Text>
-                <Text style={styles.weatherItemTitle}>{value}{unit}</Text>
+                <Text style={styles.weatherItemTitle}>{props.title}</Text>
+                <Text style={styles.weatherItemTitle}>{props.value}{props.unit}</Text>
             </View>
-            <Modalscreen temp={value} uvi={uvi} humidity={humidity} feels_like={feels_like} pressure={pressure} description={description} />
+            <Modalscreen temp={props.value} uvi={props.uvi} humidity={props.humidity} feels_like={props.feels_like} pressure={props.pressure} description={props.description} />
         </TouchableOpacity>
     )
 }

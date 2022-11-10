@@ -4,8 +4,7 @@ const styles = StyleSheet.create({
     modalContainer: {
         width: '80%',
         backgroundColor: '#E6E6FA',
-        paddingHorizontal: 20,
-        paddingVertical: 40
+        padding: 20,
     },
     modalBackground: {
         flex: 1,
@@ -14,8 +13,9 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(0,0,0,0.5)"
     },
     header: {
-        width: '100%',
+        //width: '100%',
         height: 40,
+        backgroundColor: '#fff',
         alignItems: 'flex-end'
 
     },
@@ -26,12 +26,19 @@ const styles = StyleSheet.create({
     },
     temp: {
         marginLeft: 10,
-        fontSize: 15,
+        fontSize: 14,
         fontWeight: '600',
         alignItems: 'center',
         justifyContent: 'center',
-        //marginLeft: 10
-    }
+        color: '#000',
+    },
+    bottomWrapper: {
+        borderWidth: 2,
+        borderRadius: 10,
+        width: "50%",
+        alignItems: 'center',
+        marginHorizontal: 3,
+    },
 }
 )
 const ModalPopup = ({ visible, children }) => {
@@ -66,34 +73,34 @@ const Modalscreen = (props) => {
             <View>
                 <ModalPopup visible={visible}>
                     <View>
-                        <View style={styles.header}>
-                            <TouchableOpacity onPress={() => setVisible(false)}>
-                                <Image source={require('./../assets/cancel.png')}
-                                    style={{ width: 30, height: 30 }}></Image>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={{ flexDirection: 'row' }}>
+                        {/* <View style={styles.header}> */}
+                        <TouchableOpacity style={{ alignItems: 'flex-end' }} onPress={() => setVisible(false)}>
+                            <Image source={require('../assets/images/cancel.png')}
+                                style={{ width: 20, height: 20, borderColor: '#000', borderWidth: 2, borderRadius: 30, }}></Image>
+                        </TouchableOpacity>
+                        {/* </View> */}
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <View>
                                 <Text style={styles.top}>{props.temp}&#176;C</Text>
                             </View>
                             <View >
                                 <Text style={styles.temp}>Feels Like {props.feels_like}&#176;C</Text>
-                                <Text style={styles.temp}>Pressure {props.pressure} mb</Text>
+                                <Text style={styles.temp}>Pressure {props.pressure} hPA</Text>
                             </View>
                         </View>
                         <View>
-                            <Text style={{ fontWeight: '500', fontSize: 20, }}>It seems like {props.description}</Text>
+                            <Text style={{ fontWeight: '500', fontSize: 20, color: '#000', }}>It seems like {props.description}</Text>
                         </View>
                         <View style={{ flexDirection: 'row', marginTop: 20 }}>
-                            <View style={{ borderWidth: 2, borderRadius: 10, width: "50%", alignItems: 'center', marginHorizontal: 3 }}>
+                            <View style={styles.bottomWrapper}>
                                 <View>
-                                    <Text style={{ fontSize: 24 }}>Humidity</Text>
+                                    <Text style={{ fontSize: 24, color: '#000', }}>Humidity</Text>
                                     <Text style={styles.temp}>{props.humidity}%</Text>
                                 </View>
                             </View>
-                            <View style={{ borderWidth: 2, borderRadius: 10, width: "50%", alignItems: 'center', marginHorizontal: 3 }}>
+                            <View style={styles.bottomWrapper}>
                                 <View>
-                                    <Text style={{ fontSize: 24 }}>UV Index</Text>
+                                    <Text style={{ fontSize: 24, color: '#000', }}>UV Index</Text>
                                     <Text style={styles.temp}>{props.uvi} of 10</Text>
                                 </View>
                             </View>
