@@ -23,7 +23,7 @@
 1. Abdulrazak Patel - Worked on Landing Screen of the app.
 2. Anusha Lagidi - Worked on App Icon and SplashScreen for android.
 3. Chakradhar Reddy - Worked on the Model screen for the app.
-4. Aniket Gaurav - Worked on SplashScreen and app icon for IOS.
+4. Aniket Gaurav - Worked on Desigining the app and SplashScreen for IOS.
 5. Lagudu Chandana - Worked on API for Weather app.
 
 Note :
